@@ -1,0 +1,54 @@
+model:
+  name: "Qwen/Qwen3.5-4B"
+
+dataset:
+  train_path: "/scratch/sg/Nihal/data/grpo.jsonl"
+  prompt_column: "prompt"
+  ground_truth_column: "ground_truth"
+  target_grid_column: "target_grid"
+  game_id_column: "game_id"
+  episode_column: "episode"
+
+training:
+  do_eval: false
+  max_steps: 1000
+  learning_rate: 1e-5                      # Lowered to prevent policy collapse
+  batch_size: 2
+  gradient_accumulation_steps: 8
+  logging_steps: 5
+  max_seq_length: 1024
+  max_prompt_length: 512
+  max_completion_length: 256
+
+grpo:
+  num_generations: 4
+  temperature: 1.0
+
+optimization:
+  bf16: true
+  gradient_checkpointing: true
+  use_gradient_checkpointing: "unsloth"
+
+  optim: "paged_adamw_8bit"
+
+quantization:
+  load_in_4bit: true
+
+lora:
+  r: 16
+  alpha: 16                                
+  dropout: 0.05
+
+scheduler:
+  type: "cosine"
+
+regularization:
+  weight_decay: 0.01
+
+checkpoint:
+  save_strategy: "steps"
+  save_steps: 50
+  save_total_limit: 2
+
+output:
+  output_dir: "/scratch/sg/Nihal/outputs/D10001_grpo_nih2"

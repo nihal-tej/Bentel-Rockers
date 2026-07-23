@@ -1,0 +1,182 @@
+[
+  {
+    "model_name": "smol-135m",
+    "backend": "huggingface_local",
+    "huggingface_id": "HuggingFaceTB/SmolLM-135M-Instruct",
+    "release_date": "2024-09-04",
+    "open_weight": true,
+    "parameters": "135M",
+    "languages": ["en"],
+    "context_size": "2048",
+    "license": {
+      "name": "Apache 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0"
+    },
+    "model_config": {
+      "premade_chat_template": true,
+      "eos_to_cull": "<\\|im_end\\|>"
+    }
+  },{
+  "model_name": "TinyLlama",
+  "backend": "huggingface_local",
+  "huggingface_id": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+  "context_size": "2k",
+  "open_weight": true,
+  "parameters": "1.1B",
+  "model_config": {
+      "premade_chat_template": true,
+      "eos_to_cull": "</s>",
+      "padding_side": "left"
+  }
+}, {
+  "model_name": "smol-135m-sft",
+  "backend": "huggingface_local",
+  "huggingface_id": "models/sft/smol-135m/checkpoint-63",
+  "release_date": "2024-09-04",
+  "open_weight": true,
+  "parameters": "135M",
+  "languages": ["en"],
+  "context_size": "2048",
+  "license": {
+    "name": "Apache 2.0",
+    "url": "https://www.apache.org/licenses/LICENSE-2.0"
+  },
+  "model_config": {
+    "premade_chat_template": true,
+    "eos_to_cull": "<\\|im_end\\|>"
+  }
+}, {
+  "model_name": "Llama-3.1-8B-Instruct",
+  "backend": "huggingface_local",
+  "huggingface_id": "meta-llama/Meta-Llama-3.1-8B-Instruct",
+  "release_date": "2024-07-23",
+  "open_weight": true,
+  "parameters": "8B",
+  "languages": ["en", "de", "fr", "it", "pt", "hi", "es", "th"],
+  "context_size": "128k",
+  "license": {
+    "name": "Meta",
+    "url": "https://github.com/meta-llama/llama-models/blob/main/models/llama3_1/LICENSE"
+  },
+  "model_config": {
+    "requires_api_key": true,
+    "premade_chat_template": true,
+    "eos_to_cull": "<\\|eot_id\\|>"
+  }
+},{
+  "model_name": "Llama-3.1-8B-Instruct-4bit",
+  "backend": "huggingface_local",
+  "huggingface_id": "meta-llama/Meta-Llama-3.1-8B-Instruct",
+  "release_date": "2024-07-23",
+  "open_weight": true,
+  "parameters": "8B",
+  "languages": ["en", "de", "fr", "it", "pt", "hi", "es", "th"],
+  "context_size": "128k",
+  "license": {
+    "name": "Meta",
+    "url": "https://github.com/meta-llama/llama-models/blob/main/models/llama3_1/LICENSE"
+  },
+  "model_config": {
+    "requires_api_key": true,
+    "premade_chat_template": true,
+    "eos_to_cull": "<\\|eot_id\\|>",
+    "load_in_4bit": true
+  }
+}, {
+  "model_name": "llama3-8b-sft",
+  "backend": "huggingface_local",
+  "huggingface_id": "meta-llama/Meta-Llama-3.1-8B-Instruct",
+  "release_date": "2024-07-23",
+  "open_weight": true,
+  "parameters": "8B",
+  "languages": ["en", "de", "fr", "it", "pt", "hi", "es", "th"],
+  "context_size": "128k",
+  "license": {
+    "name": "Meta",
+    "url": "https://github.com/meta-llama/llama-models/blob/main/models/llama3_1/LICENSE"
+  },
+  "model_config": {
+    "peft_model": "models/sft+lora/llama3-8b/checkpoint-78",
+    "requires_api_key": true,
+    "premade_chat_template": true,
+    "eos_to_cull": "<\\|eot_id\\|>"
+  }
+}, {
+  "model_name": "gpt4o-mini",
+  "model_id": "gpt-4o-mini-2024-07-18",
+  "backend": "openai",
+  "release_date": "2024-07-18",
+  "open_weight": false,
+  "parameters": "",
+  "languages": [
+    "en", "es", "fr", "de", "it", "pt", "ru", "zh", "ja", "ko", "ar", "hi", "bn", "te", "ta", "ml", "kn", "gu", "mr",
+    "pa", "ur", "vi", "th", "id", "ms", "tl", "sw", "yo", "zu", "tr", "he", "fa", "uk", "pl", "cs", "hu", "ro", "nl",
+    "sv", "no", "da", "fi", "el", "bg", "sr", "hr", "sk", "is"
+  ],
+  "context_size": "128k",
+  "license": {
+    "name": "OpenAI",
+    "url": "https://openai.com/policies/row-terms-of-use/"
+  },
+  "model_config": {
+    "multimodality": {
+      "single_image": true,
+      "multiple_images": true,
+      "audio": false,
+      "video": false
+    }
+  }
+},
+{
+ "model_name":"Qwen0.5B",
+ "backend":"huggingface_local",
+ "huggingface_id":"Qwen/Qwen2.5-0.5B-Instruct",
+ "context_size":"32k",
+ "open_weight":true,
+ "parameters":"0.5B",
+ "model_config":{
+      "premade_chat_template":true,
+      "eos_to_cull":"<|im_end|>",
+      "padding_side":"left"
+ }
+},
+{
+  "model_name":"Qwen1.5B",
+  "backend":"huggingface_local",
+  "huggingface_id":"Qwen/Qwen2.5-1.5B-Instruct",
+  "context_size":"32k",
+  "open_weight":true,
+  "parameters":"1.5B",
+  "model_config":{
+      "premade_chat_template":true,
+      "eos_to_cull":"<|im_end|>",
+      "padding_side":"left"
+  }
+},
+{
+  "model_name": "qwen3-8b-d10001",
+  "backend": "huggingface_local",
+  "huggingface_id": "/home/shreya/Nihal/outputs/D10001/merged_model",
+  "context_size": "32k",
+  "open_weight": true,
+  "parameters": "8B",
+  "model_config": {
+    "premade_chat_template": true,
+    "eos_to_cull": "<|im_end|>",
+    "padding_side": "left"
+  }
+},{
+  "model_name": "qwen2.5-7b-d10001-fin",
+  "backend": "huggingface_local",
+  "huggingface_id": "Qwen/Qwen2.5-7B-Instruct",
+  "context_size": "32k",
+  "open_weight": true,
+  "parameters": "7B",
+  "model_config": {
+    "peft_model": "/home/shreya/Nihal/outputs/D10001/checkpoint-1850",
+    "premade_chat_template": true,
+    "eos_to_cull": "<|im_end|>",
+    "padding_side": "left"
+  }
+}
+]

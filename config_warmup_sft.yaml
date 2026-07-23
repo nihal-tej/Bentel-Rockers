@@ -1,0 +1,51 @@
+model:
+  name: "/home/shreya/Nihal/outputs/D10001_warmup/warmup_merged"
+
+dataset:
+  train_path: "/home/shreya/Nihal/data/D10001_train.csv"
+  val_path: "/home/shreya/Nihal/data/D10001_val.csv"
+  text_column: "text"
+
+training:
+  epochs: 2
+  learning_rate: 2e-5
+  batch_size: 2
+  gradient_accumulation_steps: 8
+  logging_steps: 10
+  eval_steps: 100
+  max_seq_length: 4096
+  warmup_ratio: 0.03
+
+optimization:
+  bf16: true
+  gradient_checkpointing: false
+  packing: false
+
+quantization:
+  load_in_4bit: true
+
+lora:
+  r: 16
+  alpha: 32
+  dropout: 0.05
+
+scheduler:
+  type: cosine
+
+regularization:
+  weight_decay: 0.01
+
+checkpoint:
+  save_strategy: steps
+  save_steps: 100
+  save_total_limit: 3
+  load_best_model_at_end: true
+
+  # Previous adapter to merge into base
+  merge_adapter_checkpoint: null
+
+  # Resume same trainer run
+  resume_from_checkpoint: null
+
+output:
+  output_dir: "/home/shreya/Nihal/outputs/D10001_warmup_sft"

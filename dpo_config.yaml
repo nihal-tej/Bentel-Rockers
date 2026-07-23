@@ -1,0 +1,50 @@
+model:
+  name: "/home/shreya/Nihal/outputs/base_dia_3.5_4B/warmup_merged"
+
+dataset:
+  train_path: "/home/shreya/Nihal/data/DPO_dataset.csv"
+  prompt_column: "prompt"
+  chosen_column: "chosen"
+  rejected_column: "rejected"
+
+training:
+  do_eval: false
+  epochs: 1 # DPO usually requires fewer epochs than SFT 
+  learning_rate: 5e-5 # DPO learning rates are generally lower than SFT
+  batch_size: 1
+  gradient_accumulation_steps: 8
+  logging_steps: 50
+  max_seq_length: 1408
+  warmup_ratio: 0.1
+
+dpo:
+  beta: 0.1 
+
+optimization:
+  bf16: true
+  gradient_checkpointing: true
+  use_gradient_checkpointing: "unsloth"
+
+quantization:
+  load_in_4bit: true
+
+lora:
+  r: 16
+  alpha: 32
+  dropout: 0.0
+
+scheduler:
+  type: cosine
+
+regularization:
+  weight_decay: 0.01
+
+checkpoint:
+  save_strategy: steps
+  save_steps: 1000
+  save_total_limit: 2
+  merge_adapter_checkpoint: null
+  resume_from_checkpoint: null
+
+output:
+  output_dir: "/home/shreya/Nihal/outputs/D30001_dpo_nih"
